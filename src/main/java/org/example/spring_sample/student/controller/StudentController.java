@@ -3,6 +3,7 @@ package org.example.spring_sample.student.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.example.spring_sample.student.domain.Student;
 import org.example.spring_sample.student.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,8 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    StudentService service;
+    final StudentService service;
 
+    @Autowired
     public StudentController(StudentService studentService) {
         this.service = studentService;
     }
